@@ -198,9 +198,12 @@ def get_metrics(_bq, pid):
 def build_schema(pid):
     return f"""Dataset BigQuery: `{pid}.datalyx_analytics`
 
-contratos: cliente STRING, tipo STRING("recorrente"/"pontual"), valor_mensal FLOAT, status STRING, data_inicio DATE
-tickets: id STRING, categoria STRING("incidente"/"duvida"/"manutencao"/"fora_de_escopo"), prioridade STRING("alta"/"media"/"baixa"), cliente STRING, data_abertura DATE
-sla_metricas: ticket_id STRING, cliente STRING, categoria STRING, tempo_resposta_horas FLOAT, resolvido BOOL, data_resolucao DATE"""
+Clientes: DataCorp, TechBrasil, Varejo360, FinanSol, LogiData, RetailMax, AgriTech, MediFlow, EduData, IndustriaX
+Modelos de contratação: Radar (diagnóstico pontual), Forja (projeto fechado), Nexus (pacote de horas recorrente: 40h/80h/120h)
+
+contratos: cliente STRING, modelo STRING("Radar"/"Forja"/"Nexus"), tipo STRING("recorrente"/"pontual"), valor_mensal FLOAT, status STRING, data_inicio DATE, horas_pacote INTEGER
+tickets: id STRING, texto STRING, categoria STRING("incidente"/"duvida"/"manutencao"/"fora_de_escopo"), prioridade STRING("alta"/"media"/"baixa"), cliente STRING, modelo STRING, data_abertura DATE
+sla_metricas: ticket_id STRING, cliente STRING, modelo STRING, categoria STRING, tempo_resposta_horas FLOAT, resolvido BOOL, data_resolucao DATE"""
 
 
 def call_with_retry(fn, *args, **kwargs):
@@ -265,12 +268,12 @@ with st.sidebar:
 
     st.markdown('<div class="sec-label">Exemplos</div>', unsafe_allow_html=True)
     examples = [
-        "Quantos contratos temos?",
-        "Qual a receita mensal total?",
-        "Qual cliente abriu mais tickets?",
-        "Incidentes de alta prioridade?",
-        "Média de tempo de resposta?",
-        "Tickets pendentes de resolução?",
+        "Qual cliente está em situação crítica?",
+        "Qual a receita mensal por modelo?",
+        "Quais clientes Nexus têm mais incidentes?",
+        "Qual cliente tem SLA mais estourado?",
+        "Clientes com mais tickets fora do escopo?",
+        "Qual modelo gera mais tickets de incidente?",
     ]
     for ex in examples:
         if st.button(ex, key=f"ex_{ex}"):
