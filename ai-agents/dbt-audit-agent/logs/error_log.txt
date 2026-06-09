@@ -1,0 +1,23 @@
+12:34:56  Running with dbt=1.7.4
+12:34:56  Found 4 models, 2 sources, 0 exposures, 0 metrics
+12:34:56
+12:34:56  Concurrency: 4 threads (target='prod')
+12:34:56
+12:34:57  1 of 4 START sql table model datalyx.stg_clientes .................. [RUN]
+12:34:58  1 of 4 OK created sql table model datalyx.stg_clientes ............. [OK in 1.23s]
+12:34:58  2 of 4 START sql table model datalyx.stg_pedidos ................... [RUN]
+12:34:59  2 of 4 OK created sql table model datalyx.stg_pedidos .............. [OK in 0.98s]
+12:34:59  3 of 4 START sql table model datalyx.dim_clientes .................. [RUN]
+12:35:00  3 of 4 OK created sql table model datalyx.dim_clientes ............. [OK in 0.87s]
+12:35:00  4 of 4 START sql table model datalyx.fct_receita ................... [RUN]
+12:35:01  4 of 4 ERROR creating sql table model datalyx.fct_receita .......... [ERROR in 0.54s]
+12:35:01
+12:35:01  Finished running 4 models in 0 hours 0 minutes and 5.62 seconds.
+12:35:01
+12:35:01  Completed with 1 error and 0 warnings:
+12:35:01
+12:35:01  Database Error in model fct_receita (models/marts/fct_receita.sql)
+12:35:01    Unrecognized name: valor_bruto; Did you mean valor_total? at [7:7]
+12:35:01    Column 'valor_bruto' not found in table 'stg_pedidos'
+12:35:01
+12:35:01  Done. PASS=3 WARN=0 ERROR=1 SKIP=0 TOTAL=4

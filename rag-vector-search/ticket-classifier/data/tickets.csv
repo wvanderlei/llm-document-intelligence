@@ -1,0 +1,126 @@
+texto,categoria,prioridade,cliente
+"o pipeline de ETL parou de rodar ontem à noite e os dados não estão chegando no BigQuery",incidente,alta,Radar
+"a tabela de pedidos está vazia desde ontem, a última carga falhou",incidente,alta,Forja
+"o dashboard de faturamento está fora do ar e o time financeiro não consegue acessar",incidente,alta,Nexus
+"os dados de transações do dia estão com valores inconsistentes com o sistema de origem",incidente,alta,Radar
+"a view de vendas está retornando registros duplicados desde a madrugada",incidente,alta,Forja
+"o pipeline de integração com a API do cliente parou de funcionar",incidente,alta,Nexus
+"erro crítico no processo de carga noturna, zero registros foram inseridos",incidente,alta,Radar
+"a tabela fato_pedidos não atualiza desde sexta-feira",incidente,alta,Forja
+"dados de clientes sumiram da tabela após a manutenção do fim de semana",incidente,alta,Nexus
+"integração com o ERP caiu e os dados estão desatualizados há 6 horas",incidente,alta,Radar
+"pipeline quebrou depois da atualização que fizeram ontem",incidente,alta,Forja
+"a carga de dados de NF está falhando com erro de schema",incidente,alta,Nexus
+"BigQuery está retornando erro de timeout na query principal do dashboard",incidente,alta,Radar
+"os KPIs do painel executivo estão com valores zerados",incidente,alta,Forja
+"falha na replicação dos dados do banco transacional para o data warehouse",incidente,alta,Nexus
+"job de transformação dbt falhou com erro de referência de modelo",incidente,alta,Radar
+"dados de ontem ainda não chegaram no BigQuery, pipeline está travado",incidente,alta,Forja
+"erro de permissão no GCS impedindo a carga do arquivo diário",incidente,alta,Nexus
+"o campo valor_total está sendo calculado errado desde a última sexta",incidente,alta,Radar
+"o processo de deduplicação rodou errado e apagou registros válidos",incidente,alta,Forja
+"a tabela de estoque não está sendo atualizada conforme combinado",incidente,alta,Nexus
+"o dashboard mobile não carrega os dados, dando timeout na consulta",incidente,alta,Radar
+"a atualização automática do painel parou após mudança no esquema da tabela",incidente,alta,Forja
+"o pipeline de dados de RH falhou e os relatórios do RH estão desatualizados",incidente,alta,Nexus
+"os relatórios de margem estão com números negativos sem motivo aparente",incidente,alta,Radar
+"o relatório semanal de RH chegou com atraso de 2 horas hoje",incidente,media,Forja
+"algumas linhas da tabela de clientes estão com CEP nulo",incidente,media,Nexus
+"o filtro de data no dashboard não está funcionando corretamente",incidente,media,Radar
+"o gráfico de linha do painel de vendas quebra para datas acima de 90 dias",incidente,media,Forja
+"o export de CSV do relatório está gerando arquivo corrompido",incidente,media,Nexus
+"a atualização do painel está demorando 40 minutos, muito acima do normal",incidente,media,Radar
+"uma das colunas do relatório mensal está aparecendo em branco",incidente,media,Forja
+"o campo de margem de lucro está mostrando percentual incorreto em alguns registros",incidente,media,Nexus
+"os dados de filial nova não estão aparecendo no painel geral",incidente,media,Radar
+"o agendamento do relatório mudou de horário sozinho",incidente,media,Forja
+"como faço para filtrar os dados por período no dashboard?",duvida,baixa,Radar
+"qual a frequência de atualização dos dados na tabela de transações?",duvida,baixa,Nexus
+"como interpretar o campo status_pagamento na tabela de pedidos?",duvida,baixa,Forja
+"onde consigo ver o histórico de alterações de um registro?",duvida,baixa,Radar
+"como exportar os dados do dashboard para Excel?",duvida,baixa,Nexus
+"qual o significado do campo tipo_cliente na tabela de cadastro?",duvida,baixa,Forja
+"como funciona o cálculo de margem que está no painel financeiro?",duvida,baixa,Radar
+"o relatório de segunda vem atualizado até que horário?",duvida,baixa,Nexus
+"como compartilhar o dashboard com um colega novo da equipe?",duvida,baixa,Forja
+"qual a granularidade dos dados de vendas, é diária ou horária?",duvida,baixa,Radar
+"como faço para ver os dados de uma filial específica?",duvida,baixa,Nexus
+"existe algum limite de registros no export do relatório?",duvida,baixa,Forja
+"o campo data_criacao é a data do pedido ou da aprovação?",duvida,baixa,Radar
+"como interpreto os dados de churn no painel de clientes?",duvida,baixa,Nexus
+"qual a diferença entre receita bruta e receita líquida no relatório?",duvida,baixa,Forja
+"posso acessar os dados diretamente pelo BigQuery ou só pelo dashboard?",duvida,baixa,Radar
+"como funciona o processo de carga dos dados e qual o horário de atualização?",duvida,baixa,Nexus
+"o que significa o status pendente na tabela de cobranças?",duvida,baixa,Forja
+"existe documentação sobre os campos da tabela de contratos?",duvida,baixa,Radar
+"como configurar alertas de anomalia no dashboard?",duvida,baixa,Nexus
+"como faço o download do relatório em PDF?",duvida,baixa,Forja
+"qual o período máximo que consigo consultar no histórico?",duvida,baixa,Radar
+"os dados são atualizados em tempo real ou há algum delay?",duvida,baixa,Nexus
+"como funciona a regra de negócio do cálculo de comissão dos vendedores?",duvida,baixa,Forja
+"quais os dados disponíveis sobre os clientes inativos?",duvida,baixa,Radar
+"o relatório de faturamento inclui notas fiscais canceladas?",duvida,baixa,Nexus
+"como filtrar apenas os pedidos acima de determinado valor?",duvida,baixa,Forja
+"existe alguma forma de receber o relatório por email automaticamente?",duvida,baixa,Radar
+"como interpretar o indicador de cobertura de estoque no painel?",duvida,baixa,Nexus
+"a tabela de vendas inclui devoluções ou apenas vendas efetivas?",duvida,baixa,Forja
+"preciso ajustar o filtro do relatório para incluir a filial nova que abrimos",manutencao,media,Radar
+"a query do dashboard de RH está demorando muito, pode otimizar?",manutencao,media,Nexus
+"precisa adicionar a coluna de data de entrega no relatório de pedidos",manutencao,media,Forja
+"mudar o horário do envio do relatório automático de segunda para terça",manutencao,media,Radar
+"incluir o campo de observação do pedido no export do relatório",manutencao,media,Nexus
+"o painel de vendas precisa mostrar também os dados de trocas e devoluções",manutencao,media,Forja
+"atualizar o cálculo de meta de vendas com os novos valores do trimestre",manutencao,media,Radar
+"adicionar o filtro por vendedor no dashboard de performance",manutencao,media,Nexus
+"a lógica de categorização de clientes mudou, precisa atualizar a regra no pipeline",manutencao,media,Forja
+"remover do relatório os pedidos com status cancelado anteriores a 2023",manutencao,media,Radar
+"ajustar o agendamento do job para rodar às 6h no lugar das 5h",manutencao,media,Nexus
+"o nome de uma filial mudou, precisa atualizar em todos os relatórios",manutencao,media,Forja
+"incluir novos campos de endereço no relatório de cadastro de clientes",manutencao,media,Radar
+"atualizar a fórmula de cálculo de desconto conforme nova política comercial",manutencao,media,Nexus
+"precisa adicionar visão por semana no gráfico que hoje só tem mês e ano",manutencao,media,Forja
+"o relatório de estoque precisa incluir o campo de localização no armazém",manutencao,media,Radar
+"ajustar o período padrão do dashboard de 30 para 60 dias",manutencao,media,Nexus
+"incluir o CNPJ no relatório de fornecedores",manutencao,media,Forja
+"a coluna de status do pedido precisa mostrar a descrição em vez do código",manutencao,media,Radar
+"precisa corrigir o arredondamento do campo percentual no painel financeiro",manutencao,media,Nexus
+"pode corrigir o título do gráfico de vendas que está com erro de digitação?",manutencao,baixa,Forja
+"mudar a cor do indicador de alerta de laranja para vermelho",manutencao,baixa,Radar
+"adicionar o logo da empresa no cabeçalho do relatório em PDF",manutencao,baixa,Nexus
+"ajustar o alinhamento das colunas no relatório exportado em Excel",manutencao,baixa,Forja
+"o tooltip do gráfico de margem está mostrando casas decimais demais",manutencao,baixa,Radar
+"colocar o total geral no rodapé da tabela de pedidos do relatório",manutencao,baixa,Nexus
+"reordenar as colunas do relatório conforme sequência que o financeiro pediu",manutencao,baixa,Forja
+"corrigir a legenda do gráfico de pizza que está aparecendo duplicada",manutencao,baixa,Radar
+"aumentar o limite de linhas do export para 10 mil registros",manutencao,baixa,Nexus
+"atualizar o email do responsável nas configurações de alerta do sistema",manutencao,baixa,Forja
+"gostaríamos de criar um novo dashboard para o time de marketing",fora_de_escopo,baixa,Radar
+"temos interesse em integrar os dados do nosso CRM com o BigQuery",fora_de_escopo,baixa,Nexus
+"queremos desenvolver um modelo de previsão de churn de clientes",fora_de_escopo,baixa,Forja
+"poderia criar uma funcionalidade de envio de relatório por WhatsApp?",fora_de_escopo,baixa,Radar
+"gostaríamos de conectar o sistema com uma nova fonte de dados externa",fora_de_escopo,baixa,Nexus
+"queremos automatizar o processo de geração de propostas comerciais",fora_de_escopo,baixa,Forja
+"precisamos de um sistema de recomendação de produtos para o e-commerce",fora_de_escopo,baixa,Radar
+"há possibilidade de criar um app mobile para visualizar os dashboards?",fora_de_escopo,baixa,Nexus
+"queremos incluir dados de redes sociais nas análises de mercado",fora_de_escopo,baixa,Forja
+"precisamos de uma integração com o sistema de folha de pagamento",fora_de_escopo,baixa,Radar
+"gostaríamos de criar um módulo de análise de sentimento dos feedbacks",fora_de_escopo,baixa,Nexus
+"há possibilidade de fazer uma análise de mercado com dados externos?",fora_de_escopo,baixa,Forja
+"queremos um dashboard de gestão de projetos internos da empresa",fora_de_escopo,baixa,Radar
+"precisamos de uma solução de data catalog para documentar nossas tabelas",fora_de_escopo,baixa,Nexus
+"temos interesse em contratar um projeto de migração do banco de dados legado",fora_de_escopo,baixa,Forja
+"gostaríamos de desenvolver um modelo preditivo de demanda para o estoque",fora_de_escopo,baixa,Radar
+"pode criar um processo de scraping de dados do site dos concorrentes?",fora_de_escopo,baixa,Nexus
+"precisamos de uma análise de cohort dos clientes dos últimos 3 anos",fora_de_escopo,baixa,Forja
+"queremos integrar os dados de satisfação do cliente com os relatórios atuais",fora_de_escopo,baixa,Radar
+"há possibilidade de desenvolver um chatbot para atendimento interno?",fora_de_escopo,baixa,Nexus
+"urgente: precisamos de um relatório novo de compliance até o final do mês",fora_de_escopo,media,Forja
+"o board pediu um dashboard novo de ESG para a reunião da próxima semana",fora_de_escopo,media,Radar
+"nosso departamento financeiro precisa de um novo modelo de consolidação de dados",fora_de_escopo,media,Nexus
+"precisamos com urgência de uma análise dos dados dos últimos 5 anos",fora_de_escopo,media,Forja
+"o cliente pediu uma funcionalidade nova que não estava no escopo original do contrato",fora_de_escopo,media,Radar
+"precisamos de uma integração nova com urgência por mudança regulatória",fora_de_escopo,media,Nexus
+"o gestor solicitou um painel novo de acompanhamento de metas individuais",fora_de_escopo,media,Forja
+"precisamos expandir o escopo do projeto para incluir mais regiões",fora_de_escopo,media,Radar
+"há uma demanda nova de auditoria que precisa de relatório específico",fora_de_escopo,media,Nexus
+"o time de vendas quer um relatório personalizado de pipeline comercial",fora_de_escopo,media,Forja

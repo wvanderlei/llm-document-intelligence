@@ -1,0 +1,32 @@
+{
+  "raw.pedidos": [
+    {"nome": "id_pedido", "tipo": "INTEGER"},
+    {"nome": "id_cliente", "tipo": "INTEGER"},
+    {"nome": "data_pedido", "tipo": "DATE"},
+    {"nome": "valor_total", "tipo": "FLOAT", "nota": "renomeado de valor_bruto em 2024-11"},
+    {"nome": "status", "tipo": "STRING"},
+    {"nome": "canal_venda", "tipo": "STRING"}
+  ],
+  "raw.clientes": [
+    {"nome": "id_cliente", "tipo": "INTEGER"},
+    {"nome": "nome_cliente", "tipo": "STRING"},
+    {"nome": "segmento", "tipo": "STRING"},
+    {"nome": "data_cadastro", "tipo": "DATE"},
+    {"nome": "ativo", "tipo": "BOOLEAN"}
+  ],
+  "stg_pedidos": [
+    {"nome": "id_pedido", "tipo": "INTEGER"},
+    {"nome": "id_cliente", "tipo": "INTEGER"},
+    {"nome": "data_pedido", "tipo": "DATE"},
+    {"nome": "valor_total", "tipo": "FLOAT"},
+    {"nome": "status", "tipo": "STRING"},
+    {"nome": "canal_venda", "tipo": "STRING"}
+  ],
+  "stg_clientes": [
+    {"nome": "id_cliente", "tipo": "INTEGER"},
+    {"nome": "nome_cliente", "tipo": "STRING"},
+    {"nome": "segmento", "tipo": "STRING"},
+    {"nome": "data_cadastro", "tipo": "DATE"},
+    {"nome": "ativo", "tipo": "BOOLEAN"}
+  ]
+}
