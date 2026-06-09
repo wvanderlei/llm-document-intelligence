@@ -69,7 +69,8 @@ def call_with_retry(fn, *args, **kwargs):
 def generate_sql(model, schema: str, question: str) -> str:
     prompt = f"""Você é especialista em SQL para BigQuery.
 Com base no schema abaixo, gere APENAS o SQL que responde à pergunta.
-Responda somente com SQL puro, sem explicações, sem markdown.
+Responda somente com SQL puro, sem explicações, sem comentários, sem markdown.
+A primeira palavra da resposta deve ser SELECT ou WITH.
 
 {schema}
 
@@ -78,6 +79,13 @@ PERGUNTA: {question}"""
     sql = response.text.strip()
     sql = re.sub(r"```sql\s*", "", sql)
     sql = re.sub(r"```\s*", "", sql)
+    sql = sql.strip()
+
+    # Garante que começa no SELECT ou WITH, descartando qualquer texto antes
+    match = re.search(r"\b(SELECT|WITH)\b", sql, re.IGNORECASE)
+    if match:
+        sql = sql[match.start():]
+
     return sql.strip()
 
 
