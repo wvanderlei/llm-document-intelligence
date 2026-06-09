@@ -241,7 +241,7 @@ Resultado: {str(rows[:15])}"""
 
 # ── Sidebar ───────────────────────────────────────────────────────────────────
 with st.sidebar:
-    st.image(LOGO_PATH, use_container_width=True)
+    st.image(LOGO_PATH, width=180)
     st.markdown("---")
 
     st.markdown('<div class="section-label">Sobre</div>', unsafe_allow_html=True)
@@ -280,20 +280,18 @@ with st.sidebar:
 
 
 # ── Header ────────────────────────────────────────────────────────────────────
-col_logo, col_content = st.columns([1, 3])
-with col_logo:
-    st.image(LOGO_PATH, use_container_width=True)
-with col_content:
-    st.markdown("## Data Intelligence Assistant")
-    st.markdown("Faça perguntas em português. O sistema gera SQL, consulta o BigQuery e explica o resultado.")
-    st.markdown("""
-    <span class="badge">🤖 Gemini 2.5 Flash</span>
-    <span class="badge">🗄️ BigQuery</span>
-    <span class="badge">🐍 Python</span>
-    <span class="badge">📊 Datalyx · Engenharia de Dados</span>
-    """, unsafe_allow_html=True)
-
-st.markdown("---")
+st.markdown("""
+<div class="datalyx-header">
+    <div class="datalyx-brand">
+        <h1>Data Intelligence Assistant</h1>
+        <p>Faça perguntas em português. O sistema gera SQL, consulta o BigQuery e explica o resultado.</p>
+        <span class="badge">🤖 Gemini 2.5 Flash</span>
+        <span class="badge">🗄️ BigQuery</span>
+        <span class="badge">🐍 Python</span>
+        <span class="badge">📊 Datalyx · Engenharia de Dados</span>
+    </div>
+</div>
+""", unsafe_allow_html=True)
 
 # ── Métricas ──────────────────────────────────────────────────────────────────
 try:
