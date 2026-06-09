@@ -241,7 +241,24 @@ def ask(bq, pid, question):
 
 # ── Sidebar ───────────────────────────────────────────────────────────────────
 with st.sidebar:
-    st.image(LOGO_PATH, width=160)
+    st.markdown("""
+    <div style="padding: 0.5rem 0 1.2rem;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 52 52" style="vertical-align:middle;margin-right:10px;">
+            <defs>
+                <linearGradient id="sg" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#3b82f6"/>
+                    <stop offset="100%" stop-color="#06b6d4"/>
+                </linearGradient>
+            </defs>
+            <polygon points="26,2 48,14 48,38 26,50 4,38 4,14" fill="url(#sg)"/>
+            <text x="26" y="34" text-anchor="middle" fill="white" font-size="21"
+                  font-weight="800" font-family="Arial,sans-serif">D</text>
+        </svg>
+        <span style="font-size:1.25rem;font-weight:800;background:linear-gradient(90deg,#3b82f6,#06b6d4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;vertical-align:middle;">Datalyx</span>
+        <div style="font-size:0.6rem;color:#2d4a7a;letter-spacing:2px;text-transform:uppercase;margin-top:4px;padding-left:2px;">Data · Solutions · Insights</div>
+    </div>
+    <hr style="border:none;border-top:1px solid #1a2540;margin:0 0 1rem;">
+    """, unsafe_allow_html=True)
 
     st.markdown('<div class="sec-label">Sobre</div>', unsafe_allow_html=True)
     st.caption("Assistente que transforma perguntas em SQL, consulta o BigQuery e responde em linguagem natural.")
