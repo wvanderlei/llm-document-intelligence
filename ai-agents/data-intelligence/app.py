@@ -16,20 +16,7 @@ st.set_page_config(
     initial_sidebar_state="expanded",
 )
 
-# ── Logo SVG ──────────────────────────────────────────────────────────────────
-LOGO_SVG = """
-<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 52 52">
-  <defs>
-    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#3b82f6"/>
-      <stop offset="100%" stop-color="#06b6d4"/>
-    </linearGradient>
-  </defs>
-  <polygon points="26,2 48,14 48,38 26,50 4,38 4,14" fill="url(#g)"/>
-  <text x="26" y="34" text-anchor="middle" fill="white" font-size="22"
-        font-weight="800" font-family="Arial, sans-serif">D</text>
-</svg>
-"""
+LOGO_PATH = os.path.join(os.path.dirname(__file__), "logo.png")
 
 # ── CSS ───────────────────────────────────────────────────────────────────────
 st.markdown("""
@@ -254,12 +241,8 @@ Resultado: {str(rows[:15])}"""
 
 # ── Sidebar ───────────────────────────────────────────────────────────────────
 with st.sidebar:
-    st.markdown(f"""
-    <div class="sidebar-logo">
-      {LOGO_SVG}
-      <span>Datalyx</span>
-    </div>
-    """, unsafe_allow_html=True)
+    st.image(LOGO_PATH, use_container_width=True)
+    st.markdown("---")
 
     st.markdown('<div class="section-label">Sobre</div>', unsafe_allow_html=True)
     st.markdown(
@@ -297,19 +280,20 @@ with st.sidebar:
 
 
 # ── Header ────────────────────────────────────────────────────────────────────
-st.markdown(f"""
-<div class="datalyx-header">
-  {LOGO_SVG}
-  <div class="datalyx-brand">
-    <h1>Data Intelligence Assistant</h1>
-    <p>Faça perguntas em português. O sistema gera SQL, consulta o BigQuery e explica o resultado.</p>
+col_logo, col_content = st.columns([1, 3])
+with col_logo:
+    st.image(LOGO_PATH, use_container_width=True)
+with col_content:
+    st.markdown("## Data Intelligence Assistant")
+    st.markdown("Faça perguntas em português. O sistema gera SQL, consulta o BigQuery e explica o resultado.")
+    st.markdown("""
     <span class="badge">🤖 Gemini 2.5 Flash</span>
     <span class="badge">🗄️ BigQuery</span>
     <span class="badge">🐍 Python</span>
     <span class="badge">📊 Datalyx · Engenharia de Dados</span>
-  </div>
-</div>
-""", unsafe_allow_html=True)
+    """, unsafe_allow_html=True)
+
+st.markdown("---")
 
 # ── Métricas ──────────────────────────────────────────────────────────────────
 try:
