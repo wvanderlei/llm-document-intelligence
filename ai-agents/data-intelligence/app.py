@@ -18,136 +18,152 @@ st.set_page_config(
 
 LOGO_PATH = os.path.join(os.path.dirname(__file__), "logo.png")
 
-# ── CSS ───────────────────────────────────────────────────────────────────────
+# ── CSS global ────────────────────────────────────────────────────────────────
 st.markdown("""
 <style>
-  /* --- Reset e base --- */
-  #MainMenu, footer, header { visibility: hidden; }
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
-  /* --- Header --- */
-  .datalyx-header {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    padding: 1.5rem 2rem;
-    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
-    border-radius: 16px;
-    border: 1px solid #334155;
+html, body, [class*="css"] { font-family: 'Inter', sans-serif; }
+
+#MainMenu, footer, header { visibility: hidden; }
+
+/* Fundo geral */
+.stApp { background-color: #0a0f1e; }
+
+/* Sidebar */
+section[data-testid="stSidebar"] > div:first-child {
+    background: #0d1526;
+    border-right: 1px solid #1a2540;
+    padding-top: 1.5rem;
+}
+
+/* Rótulos de seção */
+.sec-label {
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #2d4a7a;
+    margin: 1.2rem 0 0.5rem;
+}
+
+/* Botões de exemplo */
+div[data-testid="stButton"] > button {
+    background: #111827 !important;
+    border: 1px solid #1e2d4a !important;
+    border-radius: 8px !important;
+    color: #7ea8d8 !important;
+    font-size: 0.8rem !important;
+    text-align: left !important;
+    width: 100% !important;
+    padding: 0.5rem 0.75rem !important;
+    margin-bottom: 4px !important;
+    transition: all 0.15s !important;
+}
+div[data-testid="stButton"] > button:hover {
+    background: #162035 !important;
+    border-color: #06b6d4 !important;
+    color: #06b6d4 !important;
+}
+
+/* Hero */
+.hero {
+    background: linear-gradient(135deg, #0d1526 0%, #111827 60%, #0a1628 100%);
+    border: 1px solid #1a2540;
+    border-radius: 20px;
+    padding: 2.5rem 3rem;
     margin-bottom: 1.5rem;
-  }
-  .datalyx-brand { flex: 1; }
-  .datalyx-brand h1 {
-    margin: 0;
-    font-size: 1.6rem;
+    position: relative;
+    overflow: hidden;
+}
+.hero::before {
+    content: "";
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 220px; height: 220px;
+    background: radial-gradient(circle, rgba(6,182,212,0.12) 0%, transparent 70%);
+    pointer-events: none;
+}
+.hero-eyebrow {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #06b6d4;
+    margin-bottom: 0.75rem;
+}
+.hero-title {
+    font-size: 2.4rem;
     font-weight: 800;
-    background: linear-gradient(90deg, #3b82f6, #06b6d4);
+    line-height: 1.15;
+    margin: 0 0 0.75rem;
+    background: linear-gradient(90deg, #f0f9ff 30%, #06b6d4 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-  }
-  .datalyx-brand p {
-    margin: 0.2rem 0 0.6rem;
-    color: #94a3b8;
-    font-size: 0.875rem;
-  }
-  .badge {
-    display: inline-block;
-    background: rgba(59,130,246,0.15);
-    border: 1px solid rgba(59,130,246,0.3);
-    color: #93c5fd;
-    padding: 0.2rem 0.65rem;
-    border-radius: 20px;
+}
+.hero-sub {
+    color: #64748b;
+    font-size: 1rem;
+    margin-bottom: 1.25rem;
+    max-width: 600px;
+}
+.pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    background: rgba(6,182,212,0.08);
+    border: 1px solid rgba(6,182,212,0.2);
+    color: #67e8f9;
+    padding: 0.3rem 0.8rem;
+    border-radius: 100px;
     font-size: 0.72rem;
-    margin-right: 0.4rem;
     font-weight: 500;
-  }
+    margin-right: 0.5rem;
+}
 
-  /* --- Cards de métricas --- */
-  .metric-row { display: flex; gap: 1rem; margin-bottom: 1.5rem; }
-  .metric-card {
+/* Métricas */
+.metric-grid { display: flex; gap: 1rem; margin-bottom: 1.5rem; }
+.mcard {
     flex: 1;
-    background: #1e293b;
-    border: 1px solid #334155;
-    border-radius: 12px;
-    padding: 1.2rem 1.5rem;
+    background: #0d1526;
+    border: 1px solid #1a2540;
+    border-radius: 14px;
+    padding: 1.4rem 1.5rem;
     text-align: center;
     position: relative;
     overflow: hidden;
-  }
-  .metric-card::before {
+    transition: border-color 0.2s;
+}
+.mcard:hover { border-color: #06b6d4; }
+.mcard::after {
     content: "";
     position: absolute;
     top: 0; left: 0; right: 0;
-    height: 3px;
+    height: 2px;
     background: linear-gradient(90deg, #3b82f6, #06b6d4);
-  }
-  .metric-value {
-    font-size: 2.2rem;
+}
+.mval {
+    font-size: 2.5rem;
     font-weight: 800;
-    background: linear-gradient(90deg, #3b82f6, #06b6d4);
+    background: linear-gradient(135deg, #3b82f6, #06b6d4);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-  }
-  .metric-label { font-size: 0.78rem; color: #64748b; margin-top: 0.2rem; }
+}
+.mlabel { font-size: 0.78rem; color: #475569; margin-top: 0.3rem; letter-spacing: 0.5px; }
 
-  /* --- Sidebar --- */
-  section[data-testid="stSidebar"] > div {
-    background: #0f172a;
-    border-right: 1px solid #1e293b;
-  }
-  .sidebar-logo {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    padding: 1rem 0 1.25rem;
-    border-bottom: 1px solid #1e293b;
-    margin-bottom: 1.25rem;
-  }
-  .sidebar-logo span {
-    font-size: 1.1rem;
-    font-weight: 700;
-    background: linear-gradient(90deg, #3b82f6, #06b6d4);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-  .section-label {
-    font-size: 0.65rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    color: #475569;
-    margin: 1.25rem 0 0.5rem;
-  }
-  .tech-pill {
+/* Tech pills sidebar */
+.tpill {
     display: inline-block;
-    background: rgba(59,130,246,0.1);
-    border: 1px solid rgba(59,130,246,0.2);
-    color: #93c5fd;
-    padding: 0.2rem 0.6rem;
+    background: #111827;
+    border: 1px solid #1e2d4a;
+    color: #4a9abb;
+    padding: 0.2rem 0.55rem;
     border-radius: 6px;
-    font-size: 0.72rem;
-    margin: 0.2rem;
-  }
-
-  /* --- Botões de exemplo --- */
-  .stButton > button {
-    width: 100%;
-    text-align: left !important;
-    background: #1e293b !important;
-    border: 1px solid #334155 !important;
-    border-radius: 8px !important;
-    color: #cbd5e1 !important;
-    font-size: 0.82rem !important;
-    padding: 0.55rem 0.8rem !important;
-    transition: all 0.2s !important;
-  }
-  .stButton > button:hover {
-    border-color: #3b82f6 !important;
-    color: #93c5fd !important;
-    background: rgba(59,130,246,0.1) !important;
-  }
+    font-size: 0.68rem;
+    margin: 2px;
+}
 </style>
 """, unsafe_allow_html=True)
 
@@ -163,37 +179,28 @@ def get_clients():
         bq = bigquery.Client(credentials=creds, project=st.secrets["GCP_PROJECT_ID"])
     else:
         bq = bigquery.Client(project=os.environ.get("GCP_PROJECT_ID"))
-    project_id = st.secrets.get("GCP_PROJECT_ID", os.environ.get("GCP_PROJECT_ID"))
-    return bq, project_id
+    return bq, st.secrets.get("GCP_PROJECT_ID", os.environ.get("GCP_PROJECT_ID"))
 
 
 @st.cache_data(ttl=300)
-def get_metrics(_bq_client, project_id):
+def get_metrics(_bq, pid):
     try:
-        queries = {
-            "contratos": f"SELECT COUNT(*) n FROM `{project_id}.datalyx_analytics.contratos`",
-            "tickets":   f"SELECT COUNT(*) n FROM `{project_id}.datalyx_analytics.tickets`",
-            "pendentes": f"SELECT COUNT(*) n FROM `{project_id}.datalyx_analytics.sla_metricas` WHERE resolvido = FALSE",
+        qs = {
+            "contratos": f"SELECT COUNT(*) n FROM `{pid}.datalyx_analytics.contratos`",
+            "tickets":   f"SELECT COUNT(*) n FROM `{pid}.datalyx_analytics.tickets`",
+            "pendentes": f"SELECT COUNT(*) n FROM `{pid}.datalyx_analytics.sla_metricas` WHERE resolvido=FALSE",
         }
-        return {k: list(_bq_client.query(q).result())[0]["n"] for k, q in queries.items()}
+        return {k: list(_bq.query(q).result())[0]["n"] for k, q in qs.items()}
     except Exception:
         return {"contratos": "—", "tickets": "—", "pendentes": "—"}
 
 
-def build_schema(project_id):
-    return f"""Projeto BigQuery: `{project_id}` | Dataset: `datalyx_analytics`
+def build_schema(pid):
+    return f"""Dataset BigQuery: `{pid}.datalyx_analytics`
 
-TABELAS:
-`{project_id}.datalyx_analytics.contratos`
-  cliente STRING, tipo STRING ("recorrente"/"pontual"), valor_mensal FLOAT, status STRING, data_inicio DATE
-
-`{project_id}.datalyx_analytics.tickets`
-  id STRING, texto STRING, categoria STRING ("incidente"/"duvida"/"manutencao"/"fora_de_escopo"),
-  prioridade STRING ("alta"/"media"/"baixa"), cliente STRING, data_abertura DATE
-
-`{project_id}.datalyx_analytics.sla_metricas`
-  ticket_id STRING, cliente STRING, categoria STRING,
-  tempo_resposta_horas FLOAT, resolvido BOOL, data_resolucao DATE"""
+contratos: cliente STRING, tipo STRING("recorrente"/"pontual"), valor_mensal FLOAT, status STRING, data_inicio DATE
+tickets: id STRING, categoria STRING("incidente"/"duvida"/"manutencao"/"fora_de_escopo"), prioridade STRING("alta"/"media"/"baixa"), cliente STRING, data_abertura DATE
+sla_metricas: ticket_id STRING, cliente STRING, categoria STRING, tempo_resposta_horas FLOAT, resolvido BOOL, data_resolucao DATE"""
 
 
 def call_with_retry(fn, *args, **kwargs):
@@ -202,119 +209,94 @@ def call_with_retry(fn, *args, **kwargs):
             return fn(*args, **kwargs)
         except Exception as e:
             if "RESOURCE_EXHAUSTED" in str(e) or "429" in str(e):
-                match = re.search(r"retry in (\d+\.?\d*)s", str(e))
-                wait = float(match.group(1)) + 2 if match else 65
-                st.toast(f"Aguardando rate limit ({wait:.0f}s)...", icon="⏳")
+                m = re.search(r"retry in (\d+\.?\d*)s", str(e))
+                wait = float(m.group(1)) + 2 if m else 65
+                st.toast(f"Aguardando {wait:.0f}s (rate limit)...", icon="⏳")
                 time.sleep(wait)
             else:
                 raise
 
 
-def ask(bq_client, project_id, question):
+def ask(bq, pid, question):
     model = genai.GenerativeModel("gemini-2.5-flash")
 
-    sql_prompt = f"""Você é especialista em SQL para BigQuery.
-Gere APENAS o SQL que responde à pergunta. Sem explicações, sem markdown.
-A primeira palavra deve ser SELECT ou WITH.
-
-{build_schema(project_id)}
-
-PERGUNTA: {question}"""
-
-    resp = call_with_retry(model.generate_content, sql_prompt)
-    sql = re.sub(r"```sql\s*|```\s*", "", resp.text).strip()
+    sql = call_with_retry(model.generate_content,
+        f"SQL BigQuery apenas, sem markdown, primeira palavra SELECT ou WITH.\n{build_schema(pid)}\nPERGUNTA: {question}"
+    ).text
+    sql = re.sub(r"```sql\s*|```\s*", "", sql).strip()
     m = re.search(r"\b(SELECT|WITH)\b", sql, re.IGNORECASE)
     if m:
         sql = sql[m.start():]
 
-    rows = [dict(r) for r in bq_client.query(sql).result()]
+    rows = [dict(r) for r in bq.query(sql).result()]
     if not rows:
         return "Nenhum resultado encontrado.", sql
 
-    explain_prompt = f"""Analista de negócios da Datalyx. Explique em português, direto, máx 3 frases. Sem SQL.
-Pergunta: {question}
-Resultado: {str(rows[:15])}"""
+    answer = call_with_retry(model.generate_content,
+        f"Analista Datalyx. Responda em português, direto, máx 3 frases, sem SQL.\nPergunta: {question}\nDados: {rows[:15]}"
+    ).text.strip()
 
-    resp2 = call_with_retry(model.generate_content, explain_prompt)
-    return resp2.text.strip(), sql
+    return answer, sql
 
 
 # ── Sidebar ───────────────────────────────────────────────────────────────────
 with st.sidebar:
-    st.image(LOGO_PATH, width=180)
-    st.markdown("---")
+    st.image(LOGO_PATH, width=160)
 
-    st.markdown('<div class="section-label">Sobre</div>', unsafe_allow_html=True)
-    st.markdown(
-        "<span style='color:#94a3b8;font-size:0.85rem'>Assistente que transforma perguntas em português em queries SQL, "
-        "executa no BigQuery e explica o resultado em linguagem de negócio.</span>",
-        unsafe_allow_html=True,
-    )
+    st.markdown('<div class="sec-label">Sobre</div>', unsafe_allow_html=True)
+    st.caption("Assistente que transforma perguntas em SQL, consulta o BigQuery e responde em linguagem natural.")
 
-    st.markdown('<div class="section-label">Exemplos</div>', unsafe_allow_html=True)
+    st.markdown('<div class="sec-label">Exemplos</div>', unsafe_allow_html=True)
     examples = [
         "Quantos contratos temos?",
         "Qual a receita mensal total?",
         "Qual cliente abriu mais tickets?",
-        "Quantos incidentes de alta prioridade?",
-        "Qual a média de tempo de resposta?",
-        "Quais tickets estão pendentes?",
+        "Incidentes de alta prioridade?",
+        "Média de tempo de resposta?",
+        "Tickets pendentes de resolução?",
     ]
     for ex in examples:
-        if st.button(f"→ {ex}", key=f"ex_{ex}"):
+        if st.button(ex, key=f"ex_{ex}"):
             st.session_state["quick_q"] = ex
 
-    st.markdown('<div class="section-label">Stack</div>', unsafe_allow_html=True)
-    st.markdown("""
-    <span class="tech-pill">Gemini 2.5 Flash</span>
-    <span class="tech-pill">BigQuery</span>
-    <span class="tech-pill">Streamlit</span>
-    <span class="tech-pill">Python</span>
-    <span class="tech-pill">GCP</span>
-    """, unsafe_allow_html=True)
-
-    st.markdown('<div class="section-label">Repositório</div>', unsafe_allow_html=True)
+    st.markdown('<div class="sec-label">Stack</div>', unsafe_allow_html=True)
     st.markdown(
-        "[![GitHub](https://img.shields.io/badge/GitHub-wvanderlei-black?logo=github&style=flat)](https://github.com/wvanderlei/llm-document-intelligence)"
+        '<span class="tpill">Gemini 2.5</span>'
+        '<span class="tpill">BigQuery</span>'
+        '<span class="tpill">Streamlit</span>'
+        '<span class="tpill">Python</span>'
+        '<span class="tpill">GCP</span>',
+        unsafe_allow_html=True,
     )
 
+    st.markdown('<div class="sec-label">Repositório</div>', unsafe_allow_html=True)
+    st.markdown("[![GitHub](https://img.shields.io/badge/GitHub-wvanderlei-0d1117?logo=github&style=flat-square)](https://github.com/wvanderlei/llm-document-intelligence)")
 
-# ── Header ────────────────────────────────────────────────────────────────────
+
+# ── Hero ──────────────────────────────────────────────────────────────────────
 st.markdown("""
-<div class="datalyx-header">
-    <div class="datalyx-brand">
-        <h1>Data Intelligence Assistant</h1>
-        <p>Faça perguntas em português. O sistema gera SQL, consulta o BigQuery e explica o resultado.</p>
-        <span class="badge">🤖 Gemini 2.5 Flash</span>
-        <span class="badge">🗄️ BigQuery</span>
-        <span class="badge">🐍 Python</span>
-        <span class="badge">📊 Datalyx · Engenharia de Dados</span>
-    </div>
+<div class="hero">
+    <div class="hero-eyebrow">Datalyx · Engenharia de Dados</div>
+    <div class="hero-title">Data Intelligence Assistant</div>
+    <div class="hero-sub">Faça perguntas em português sobre seus dados. O sistema gera o SQL, consulta o BigQuery e explica o resultado em linguagem de negócio.</div>
+    <span class="pill">🤖 Gemini 2.5 Flash</span>
+    <span class="pill">🗄️ BigQuery</span>
+    <span class="pill">🐍 Python</span>
+    <span class="pill">⚡ Real-time</span>
 </div>
 """, unsafe_allow_html=True)
 
 # ── Métricas ──────────────────────────────────────────────────────────────────
 try:
-    bq_client, project_id = get_clients()
-    m = get_metrics(bq_client, project_id)
-
+    bq, pid = get_clients()
+    m = get_metrics(bq, pid)
     st.markdown(f"""
-    <div class="metric-row">
-      <div class="metric-card">
-        <div class="metric-value">{m['contratos']}</div>
-        <div class="metric-label">Contratos ativos</div>
-      </div>
-      <div class="metric-card">
-        <div class="metric-value">{m['tickets']}</div>
-        <div class="metric-label">Tickets de suporte</div>
-      </div>
-      <div class="metric-card">
-        <div class="metric-value">{m['pendentes']}</div>
-        <div class="metric-label">Pendentes de resolução</div>
-      </div>
+    <div class="metric-grid">
+        <div class="mcard"><div class="mval">{m['contratos']}</div><div class="mlabel">Contratos ativos</div></div>
+        <div class="mcard"><div class="mval">{m['tickets']}</div><div class="mlabel">Tickets de suporte</div></div>
+        <div class="mcard"><div class="mval">{m['pendentes']}</div><div class="mlabel">Pendentes de resolução</div></div>
     </div>
     """, unsafe_allow_html=True)
-
 except Exception as e:
     st.error(f"Erro ao conectar: {e}")
     st.stop()
@@ -341,11 +323,10 @@ if question:
     st.session_state.messages.append({"role": "user", "content": question})
     with st.chat_message("user"):
         st.markdown(question)
-
     with st.chat_message("assistant"):
         with st.spinner("Analisando dados..."):
             try:
-                answer, sql = ask(bq_client, project_id, question)
+                answer, sql = ask(bq, pid, question)
                 st.markdown(answer)
                 with st.expander("Ver SQL gerado"):
                     st.code(sql, language="sql")
@@ -353,6 +334,6 @@ if question:
                     "role": "assistant", "content": answer, "sql": sql,
                 })
             except Exception as e:
-                err = f"Erro ao processar: {e}"
+                err = f"Erro: {e}"
                 st.error(err)
                 st.session_state.messages.append({"role": "assistant", "content": err})
