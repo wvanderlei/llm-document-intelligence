@@ -14,6 +14,12 @@ Esse cenário foi escolhido por refletir situações que qualquer empresa de dad
 
 ---
 
+## Arquitetura
+
+![Arquitetura](architecture.png)
+
+---
+
 ## Os 6 projetos
 
 | # | Projeto | O que resolve | Fase |
