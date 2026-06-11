@@ -2,7 +2,7 @@
 
 Portfolio de projetos de LLM e IA aplicados a problemas reais de uma empresa de consultoria em dados.
 
-Cada projeto resolve um problema operacional concreto — do mais simples ao mais avançado. A progressão vai desde análise de contratos com prompt engineering até agentes autônomos que diagnosticam falhas em pipelines de dados.
+Cada projeto resolve um problema operacional concreto do mais simples ao mais avançado. A progressão vai desde análise de contratos com prompt engineering até agentes autônomos que diagnosticam falhas em pipelines de dados.
 
 ---
 
