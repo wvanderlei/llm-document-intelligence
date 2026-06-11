@@ -18,6 +18,12 @@ Esse cenario foi escolhido por refletir situacoes que qualquer empresa de dados 
 
 ---
 
+## Arquitetura
+
+![Arquitetura](architecture.png)
+
+---
+
 ## Os 6 projetos
 
 | # | Projeto | O que resolve | Fase |
